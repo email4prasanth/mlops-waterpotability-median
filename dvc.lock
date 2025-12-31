@@ -52,19 +52,19 @@ stages:
       size: 1654
     params:
       params.yaml:
-        model_building.n_estimators: 100
+        model_building.n_estimators: 1000
     outs:
     - path: model.pkl
       hash: md5
-      md5: 06713b2cc269a0e1e09ec7bbfa92d96e
-      size: 8850067
+      md5: 890aa35692547652fe541a3eb1d70d2f
+      size: 88432228
   model_eval:
     cmd: python src/model/model_evaluation.py
     deps:
     - path: model.pkl
       hash: md5
-      md5: 06713b2cc269a0e1e09ec7bbfa92d96e
-      size: 8850067
+      md5: 890aa35692547652fe541a3eb1d70d2f
+      size: 88432228
     - path: src/model/model_evaluation.py
       hash: md5
       md5: d9df56570f8ba6e8d9c4b4bf8da4baa8
@@ -72,5 +72,5 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 777aa9cdb132d584f6a1b9b668203acf
-      size: 136
+      md5: 923461432866f72d869e97a04443cab2
+      size: 121
