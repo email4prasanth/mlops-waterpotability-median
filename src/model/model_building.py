@@ -32,7 +32,7 @@ def main():
     params_file = "params.yaml"
     model_name = "model.pkl"
     try:
-        train_data = load_data(os.path.join(data_pathfile,"train_processed.csv"))
+        train_data = load_data(os.path.join(data_pathfile,"train_processed_mean.csv"))
         x_train,y_train = prepare_data(train_data)
         params = read_params(params_file)
         n_estimators = params["model_building"]["n_estimators"]

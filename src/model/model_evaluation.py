@@ -24,7 +24,7 @@ def evaluate_model(y_test: pd.date_range, y_pred: pd.date_range) -> dict:
         raise Exception(f"Error in evaluating model:{e}")
 def main():
     # y_test and y_pred
-    test_data_path = r"./data/processed/test_processed.csv"
+    test_data_path = r"./data/processed/test_processed_mean.csv"
     x_test = pd.read_csv(test_data_path).iloc[:,0:-1].values
     y_test = pd.read_csv(test_data_path).iloc[:,-1].values
 

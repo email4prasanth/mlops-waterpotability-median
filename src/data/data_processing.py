@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 import yaml
 from src.data.data_collection import load_data, read_params, split_data, save_data
 
-def missing_vlaues_meadian(df):
+def missing_vlaues_mean(df):
     try:
         for column in df.columns:
             if df[column].isnull().any():
@@ -21,11 +21,11 @@ def main():
     try:
         train_data = load_data(os.path.join(raw_data_path, "train.csv"))
         test_data = load_data(os.path.join(raw_data_path, "test.csv"))
-        train_processed_data = missing_vlaues_meadian(train_data)
-        test_processed_data = missing_vlaues_meadian(test_data) 
+        train_processed_data = missing_vlaues_mean(train_data)
+        test_processed_data = missing_vlaues_mean(test_data) 
         os.makedirs(processed_data_path, exist_ok=True)
-        save_data(train_processed_data, os.path.join(processed_data_path,"train_processed.csv"))
-        save_data(test_processed_data, os.path.join(processed_data_path,"test_processed.csv"))
+        save_data(train_processed_data, os.path.join(processed_data_path,"train_processed_mean.csv"))
+        save_data(test_processed_data, os.path.join(processed_data_path,"test_processed_mean.csv"))
     except Exception as e:
         print(f"Error in data processing process: {e}")
 
